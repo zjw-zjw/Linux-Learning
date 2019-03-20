@@ -1,0 +1,62 @@
+（Shell Script）脚本：一堆的命令写到一起，打包成一个文件，这个文件就叫做脚本文件(一般以.sh作为文件后缀)
+
+         运行脚本文件： sh 脚本文件名
+
+         变量variable：在Linux脚本里面也支持变量，在内存开一个空间，把一个数字或者一段文字暂时保存到这个空间里
+
+         输出语句：echo
+	例1： a=10     ( 有一个变量a,里面保存了10，注意！！：赋值等号两边不能有空格 )
+      	       echo  $a  ( 使用a这个变量时候，在a前面加“$”符号 )
+	例2：输出一段字符串
+	      echo "Hello World"
+	例3：计算
+	        a=10
+	        b=3
+	        c=`expr $a + $b` (expr命令用来计算一个式子,用'' ` ''符号括起来）
+	        echo $c	  （注意！算术运算符+号两边一定要有空格！)
+	       
+	例4：乘法计算（特殊）
+	        a=10
+	        b=3
+	        c=`expr $a  \*  $b` (*号前面要有\，\表示为转义字符)
+	        echo $c
+	例5：括号的书写（特殊）:    \(   \)       说明： \表示为转义字符	
+
+        条件判断语句：if 
+	     格式：	if [ ... ]
+		then 
+		        ....
+		else
+		        ....
+		fi
+	     比较符号： 大于>：          -gt     ( greater than )
+		      小于<：          -lt      ( less than )
+		      大于等于>=： -ge    ( greater equal )
+		      小于等于>=： -le     ( less equal ) 
+		      等于：	            -eq    ( equal )
+		      不等于：         -ne    ( not equal )
+        循环语句1：for
+              格式：
+	        for x in  ....
+	        do 
+                                .....
+	        done
+
+              例子：循环十次把x打印出来
+	        for x in  1 2 3 4 5 6 7 8 9 10
+	        do 
+	               echo  $x
+	        done
+    
+        循环语句2：while
+                  格式： 
+	            while [ ... ]
+	             do
+		     ....
+       	             done
+	  例子: 
+	            while [ $x -le 10]
+	            do
+		 echo  $x
+		 x=`expr $x + 1`
+	             done
